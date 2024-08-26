@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- {% load static %} -->
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang chủ</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" th:href="@{adminstatic}">
+  <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css}">
+</head>
+
+<body>
+
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+    <label for="check">
+      <i style="left: 200px;margin-top: 5px;"class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <h3>ADMIN</h3>
+    </div>
+    <div class="right_area">
+      <a href="index.html" class="logout_btn">Đăng xuất</a>
+    </div>
+  </header>
+  <!--header area end-->
+  <!--sidebar start-->
+  <div class="sidebar">
+    <a href="TrangDashBoard.html"><i class="fas fa-columns"></i><span>Trang chủ</span></a>
+    <a href="TrangTaoChinhSuaKyThi.html"><i class="fas fa-tachometer-alt"></i><span>Quản lý kỳ thi</span></a>
+    <a href="TrangKetQua.html"><i class="fas fa-book"></i><span>Kết quả thi </span></a>
+    <a href="TrangThongKe.html"><i class="fas fa-chart-pie"></i><span>Thống kê</span></a>
+    <a href="QuanLyTaiKhoan.html"><i class="fas fa-book"></i><span>Quản lý tài khoản</span></a>
+  </div>
+  <!--sidebar end-->
+
+
+  <!--content start-->
+  <div class="content">
+    <!-- {% block content %}
+
+    {% endblock content %} -->
+    <img src="https://eduon.edu.vn/wp-content/uploads/2022/12/buu-chinh-vien-thong_1.jpg" alt="">
+     
+    <!-- {% include "quiz/footer.html" %} -->
+  </div>
+  <!--content end-->
+</body>
+
+</html>

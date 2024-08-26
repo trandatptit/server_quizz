@@ -1,0 +1,25 @@
+
+server:
+  port: 8088
+  servlet:
+    context-path: "/quiz"
+
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost:3309/btl_quizz"
+    username: root
+    password: 12345
+#    url: "jdbc:mysql://mysql-quizz-dat375801-e1b1.h.aivencloud.com:20319/quiz?ssl=require&user=avnadmin&password=AVNS_ypjswuJQxWZnHvgieRx"
+#    username: avnadmin
+#    password: AVNS_ypjswuJQxWZnHvgieRx
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+#        format_sql: true
+
+jwt:
+  signerKey: "4CIrkkE8snlW40XyWBQQiH7Lu9GUsIbZqFSPq5m94xRji99WK5Pc0PfLjMnXcagm"
+

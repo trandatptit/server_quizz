@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý tài khoản</title>
+  <link rel="stylesheet" href="../css/quanlytaikhoan.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i style="left: 200px;margin-top: 5px;"class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>ADMIN</h3>
+      </div>
+      <div class="right_area">
+        <a href="/index.html" class="logout_btn">Đăng xuất</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <a href="TrangDashBoard.html"><i class="fas fa-columns"></i><span>Trang chủ</span></a>
+      <a href="TrangTaoChinhSuaKyThi.html"><i class="fas fa-tachometer-alt"></i><span>Quản lý kỳ thi</span></a>
+      <a href="TrangKetQua.html"><i class="fas fa-book"></i><span>Kết quả thi </span></a>
+      <a href="TrangThongKe.html"><i class="fas fa-chart-pie"></i><span>Thống kê</span></a>
+      <a href="QuanLyTaiKhoan.html"><i class="fas fa-book"></i><span>Quản lý tài khoản</span></a>
+    </div>
+    <!--sidebar end-->
+  
+    <!--content start-->
+    <div class="content">
+      <br><br><br><br><br>
+      <h1>TÀI KHOẢN SINH VIÊN</h1>
+      <div class="taikhoansinhvien">
+            <table id="statistics">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Email</th>
+                        <th>Họ và tên</th>
+                        <th>Mã sinh viên</th>
+                        <th>Ngày tạo</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody id="statsBody"></tbody>
+            </table>
+          
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Sửa thông tin sinh viên</h2>
+                    <label for="oldUsername">Tên đăng nhập cũ:</label>
+                    <input type="text" id="oldUsername" ><br><br>
+                    <label for="oldPassword">Mật khẩu cũ:</label>
+                    <input type="password" id="oldPassword" ><br><br>
+                    <label for="oldEmail">Email cũ:</label>
+                    <input type="text" id="oldEmail" ><br><br>
+                    <label for="oldFullName">Họ và tên cũ:</label>
+                    <input type="text" id="oldFullName" ><br><br>
+                    <label for="oldStudentID">Mã sinh viên cũ:</label>
+                    <input type="text" id="oldStudentID" ><br><br>
+                    <label for="oldCreatedDate">Ngày tạo:</label>
+                    <input type="text" id="oldCreatedDate" ><br><br>
+                    
+                    <button onclick="saveChanges()">Lưu thay đổi</button>
+            </div>
+    </div>
+      </div>
+    </div>
+    <!--content end-->
+
+  <script src="../js/quanlytaikhoan.js"></script>
+</body>
+</html>

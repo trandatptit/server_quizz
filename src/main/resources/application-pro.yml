@@ -1,0 +1,22 @@
+#server:
+#  port: 8088
+#db:
+#  post: 3309
+#  name: btl_quizz
+#  endpoint: mysql-oraclelinux8
+#  username: root
+#  password: 12345
+#
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://${db.endpoint}:${db.post}/${db.name}
+#    username: ${db.username}
+#    password: ${db.password}
+#
+#url:
+#  redirect:
+#    path: ${domain.path}
+#
+#domain:
+#  path: https://quizz.vn/

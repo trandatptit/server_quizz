@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê</title>
+    <link rel="stylesheet" href="../css/ThongKe.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+    <label for="check">
+      <i style="left: 200px;margin-top: 5px;"class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <h3>ADMIN</h3>
+    </div>
+    <div class="right_area">
+      <a href="/index.html" class="logout_btn">Đăng xuất</a>
+    </div>
+  </header>
+  <!--header area end-->
+  <!--sidebar start-->
+  <div class="sidebar">
+    <a href="TrangDashBoard.html"><i class="fas fa-columns"></i><span>Trang chủ</span></a>
+    <a href="TrangTaoChinhSuaKyThi.html"><i class="fas fa-tachometer-alt"></i><span>Quản lý kỳ thi</span></a>
+    <a href="TrangKetQua.html"><i class="fas fa-book"></i><span>Kết quả thi </span></a>
+    <a href="TrangThongKe.html"><i class="fas fa-chart-pie"></i><span>Thống kê</span></a>
+    <a href="QuanLyTaiKhoan.html"><i class="fas fa-book"></i><span>Quản lý tài khoản</span></a>
+  </div>
+
+  <!--sidebar end-->
+  
+  <div class="content">
+    <br><br><br><br><br>
+    <h1>Thống kê kết quả thi</h1>
+    <div class="filters">
+        <label for="examType">Loại kỳ thi:</label>
+        <select id="examType">
+            <option value="all">Tất cả</option>
+            <option value="Luyện tập">Luyện tập</option>
+            <option value="Giữa kỳ">Giữa kỳ</option>
+            <option value="Cuối kỳ">Cuối kỳ</option>
+        </select>
+  
+        <label for="accessType">Trạng thái truy cập:</label>
+        <select id="accessType">
+            <option value="all">Tất cả</option>
+            <option value="Luôn mở">Luôn mở</option>
+            <option value="Theo lịch thi">Theo lịch thi</option>
+        </select>
+  
+        <label for="date">Ngày:</label>
+        <input type="date" id="date">
+  
+        <button id="applyFilters"><i class="fas fa-filter"></i></button>
+    </div>
+  
+    <div class="export-buttons">
+        <button id="exportExcel">Xuất Excel</button>
+    </div>
+  
+    <table id="statistics">
+        <thead>
+            <tr>
+                <th>STT</th> <!-- Số thứ tự(STT) -->
+                <th>Họ và tên</th>
+                <th>Mã sinh viên</th>
+                <th>Loại kỳ thi</th> <!-- Thêm cột Loại kỳ thi -->
+                <th>Trạng thái truy cập</th> <!-- Thêm cột Trạng thái truy cập -->
+                <th>Ngày thi</th> <!-- Thêm cột Ngày thi -->
+                <th>Tổng số lần tham gia</th>
+                <th>Tỉ lệ hoàn thành (%)</th>
+                <th>Điểm trung bình</th>
+            </tr>
+        </thead>
+        <tbody id="statsBody"></tbody>
+    </table>
+    <!-- Thẻ canvas để vẽ biểu đồ -->
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <br><br><br>
+  </div>
+  <script src="../js/ThongKe.js"></script>
+
+
+</body>
+</html>
