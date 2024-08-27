@@ -18,7 +18,7 @@ import java.text.ParseException;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "https://fe-quizz.vercel.app")
 public class AuthenticationController {
 
     AuthenticationService authenticationService;
