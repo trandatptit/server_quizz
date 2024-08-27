@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 //@CrossOrigin(origins = "http://127.0.0.1:5500")
-@CrossOrigin(origins = "https://fe-quizz.vercel.app")
+@CrossOrigin(origins = {"https://fe-quizz.vercel.app", "http://127.0.0.1:5500"})
 
 public class CauHoiController {
 

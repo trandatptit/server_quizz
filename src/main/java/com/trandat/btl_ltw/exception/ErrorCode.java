@@ -22,6 +22,7 @@ public enum ErrorCode {
     CAUHOI_NOT_EXISTED(1011,"CauHoi not existed", HttpStatus.NOT_FOUND),
     DETHI_EXISTED(1012, "dethi existed",  HttpStatus.BAD_REQUEST),
     DETHI_NOT_EXISTED(1011,"dethi not existed", HttpStatus.NOT_FOUND),
+    KETQUA_NOT_EXISTED(1012,"ketqua not existed", HttpStatus.NOT_FOUND),
     ;
 
     ErrorCode(int code, String message, HttpStatusCode statusCode) {

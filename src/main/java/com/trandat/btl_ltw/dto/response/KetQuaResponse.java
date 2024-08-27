@@ -13,6 +13,7 @@ import java.util.Set;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class KetQuaResponse {
+    Long ketQuaId;
     float diem;
     LocalDateTime ngaythi;
     String tenUser;

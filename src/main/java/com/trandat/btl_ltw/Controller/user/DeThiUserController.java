@@ -20,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@CrossOrigin(origins = "https://fe-quizz.vercel.app")
+@CrossOrigin(origins = {"https://fe-quizz.vercel.app", "http://127.0.0.1:5500"})
 public class DeThiUserController {
     DeThiService deThiService;
     KyThiService kyThiService;

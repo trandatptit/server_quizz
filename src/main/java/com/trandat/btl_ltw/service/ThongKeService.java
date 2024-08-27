@@ -65,31 +65,32 @@ public class ThongKeService {
                     .collect(Collectors.toSet());
             Set<KetQuaResponse> dsKetQuaDaNopResponses = new HashSet<>();
             for (KetQua x : dsKetQuaDaNop) {
-                Set<ChiTietKetQuaResponse> dsChiTietKetQuaResponses = new HashSet<>();
-                for (ChiTietKetQua chiTietKetQua : x.getChiTietKetQuas()) {
-                    dsChiTietKetQuaResponses.add(
-                            ChiTietKetQuaResponse.builder()
-                                    .cauHoi(cauHoiMapper.toCauHoiResponse(cauHoiRepository
-                                            .findById(chiTietKetQua.getCauHoiId())
-                                            .orElseThrow(() -> new AppException(ErrorCode.CAUHOI_NOT_EXISTED))))
-                                    .cauTraLoi(chiTietKetQua.getCauTraLoi())
-                                    .build()
-                    );
-                }
-                List<ChiTietKetQuaResponse> dsChiTietKetQuaResponseList = new ArrayList<>(dsChiTietKetQuaResponses);
-                Collections.sort(dsChiTietKetQuaResponseList, new Comparator<ChiTietKetQuaResponse>() {
-                    @Override
-                    public int compare(ChiTietKetQuaResponse ChiTietCauHoi1, ChiTietKetQuaResponse ChiTietCauHoi2) {
-                        return Integer.compare(Math.toIntExact(ChiTietCauHoi1.getCauHoi().getId()), Math.toIntExact(ChiTietCauHoi2.getCauHoi().getId()));
-                    }
-                });
+//                Set<ChiTietKetQuaResponse> dsChiTietKetQuaResponses = new HashSet<>();
+//                for (ChiTietKetQua chiTietKetQua : x.getChiTietKetQuas()) {
+//                    dsChiTietKetQuaResponses.add(
+//                            ChiTietKetQuaResponse.builder()
+//                                    .cauHoi(cauHoiMapper.toCauHoiResponse(cauHoiRepository
+//                                            .findById(chiTietKetQua.getCauHoiId())
+//                                            .orElseThrow(() -> new AppException(ErrorCode.CAUHOI_NOT_EXISTED))))
+//                                    .cauTraLoi(chiTietKetQua.getCauTraLoi())
+//                                    .build()
+//                    );
+//                }
+//                List<ChiTietKetQuaResponse> dsChiTietKetQuaResponseList = new ArrayList<>(dsChiTietKetQuaResponses);
+//                Collections.sort(dsChiTietKetQuaResponseList, new Comparator<ChiTietKetQuaResponse>() {
+//                    @Override
+//                    public int compare(ChiTietKetQuaResponse ChiTietCauHoi1, ChiTietKetQuaResponse ChiTietCauHoi2) {
+//                        return Integer.compare(Math.toIntExact(ChiTietCauHoi1.getCauHoi().getId()), Math.toIntExact(ChiTietCauHoi2.getCauHoi().getId()));
+//                    }
+//                });
                 dsKetQuaDaNopResponses.add(
                         KetQuaResponse.builder()
+                                .ketQuaId(x.getId())
                                 .diem(x.getDiem())
                                 .ngaythi(x.getNgaythi())
                                 .tenUser(x.getUser().getFullName())
                                 .tenDeThi(x.getDeThi().getTen())
-                                .dsChiTietKetQua(dsChiTietKetQuaResponseList)
+//                                .dsChiTietKetQua(dsChiTietKetQuaResponseList)
                                 .build()
                 );
             }
@@ -121,6 +122,32 @@ public class ThongKeService {
                 .diemTrungBinh(diemTrungBinh)
                 .dsDeThiDaLam(deThiInUserResponseArrayList)
                 .build();
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<ChiTietKetQuaResponse> chiTietKetQua(Long ketQuaId){
+        KetQua ketQua = ketQuaRepository.findById(ketQuaId).orElseThrow(
+                () -> new AppException(ErrorCode.KETQUA_NOT_EXISTED)
+        );
+        Set<ChiTietKetQuaResponse> dsChiTietKetQuaResponses = new HashSet<>();
+        for (ChiTietKetQua chiTietKetQua : ketQua.getChiTietKetQuas()) {
+            dsChiTietKetQuaResponses.add(
+                    ChiTietKetQuaResponse.builder()
+                            .cauHoi(cauHoiMapper.toCauHoiResponse(cauHoiRepository
+                                    .findById(chiTietKetQua.getCauHoiId())
+                                    .orElseThrow(() -> new AppException(ErrorCode.CAUHOI_NOT_EXISTED))))
+                            .cauTraLoi(chiTietKetQua.getCauTraLoi())
+                            .build()
+            );
+        }
+        List<ChiTietKetQuaResponse> dsChiTietKetQuaResponseList = new ArrayList<>(dsChiTietKetQuaResponses);
+        Collections.sort(dsChiTietKetQuaResponseList, new Comparator<ChiTietKetQuaResponse>() {
+            @Override
+            public int compare(ChiTietKetQuaResponse ChiTietCauHoi1, ChiTietKetQuaResponse ChiTietCauHoi2) {
+                return Integer.compare(Math.toIntExact(ChiTietCauHoi1.getCauHoi().getId()), Math.toIntExact(ChiTietCauHoi2.getCauHoi().getId()));
+            }
+        });
+        return dsChiTietKetQuaResponseList;
     }
 
     @PreAuthorize("hasRole('ADMIN')")

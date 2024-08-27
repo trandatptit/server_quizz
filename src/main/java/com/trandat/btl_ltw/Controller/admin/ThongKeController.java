@@ -1,6 +1,7 @@
 package com.trandat.btl_ltw.Controller.admin;
 
 import com.trandat.btl_ltw.dto.response.ApiResponse;
+import com.trandat.btl_ltw.dto.response.ChiTietKetQuaResponse;
 import com.trandat.btl_ltw.dto.response.DeThiThongKeResponse;
 import com.trandat.btl_ltw.dto.response.UserThongKeResponse;
 import com.trandat.btl_ltw.service.ThongKeService;
@@ -17,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@CrossOrigin(origins = "https://fe-quizz.vercel.app")
+@CrossOrigin(origins = {"https://fe-quizz.vercel.app", "http://127.0.0.1:5500"})
 public class ThongKeController {
     ThongKeService thongKeService;
 
@@ -25,6 +26,12 @@ public class ThongKeController {
     ApiResponse<UserThongKeResponse> thongKeKetQuaUser(@RequestParam("userId") Long userId){
         ApiResponse<UserThongKeResponse> apiResponse = new ApiResponse<>();
         apiResponse.setResult(thongKeService.thongKeUser(userId));
+        return apiResponse;
+    }
+    @GetMapping("/chiTietKQ")
+    ApiResponse<List<ChiTietKetQuaResponse>> chiTietKQ(@RequestParam ("ketQuaId") Long ketQuaId){
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setResult(thongKeService.chiTietKetQua(ketQuaId));
         return apiResponse;
     }
 
