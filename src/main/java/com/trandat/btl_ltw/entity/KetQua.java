@@ -38,17 +38,17 @@ public class KetQua {
     LocalDateTime ngaythi;
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dethi_id", referencedColumnName = "dethi_id")
     @JsonBackReference
     DeThi deThi;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     @JsonBackReference
     User user;
 
-    @OneToMany(mappedBy = "ketQua", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ketQua", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference
     Set<ChiTietKetQua> chiTietKetQuas = new HashSet<>();
 

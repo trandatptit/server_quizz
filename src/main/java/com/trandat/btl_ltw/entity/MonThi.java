@@ -32,7 +32,7 @@ public class MonThi {
     Long id;
     String tenMon;
 
-    @OneToMany(mappedBy = "monThi" , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "monThi" , fetch = FetchType.LAZY)
     Set<CauHoi> dsCauHoi = new HashSet<>();
 
     @OneToMany(mappedBy = "monThi", fetch = FetchType.LAZY)

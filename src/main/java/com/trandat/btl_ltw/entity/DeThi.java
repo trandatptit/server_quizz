@@ -50,11 +50,11 @@ public class DeThi {
 //    @OneToMany(mappedBy = "deThi", fetch = FetchType.EAGER)
 //    List<ChiTietDeThi> chiTietDeThis = new ArrayList<>();
 
-    @OneToMany(mappedBy = "deThi", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "deThi", fetch = FetchType.LAZY)
     @JsonManagedReference
     Set<KetQua> ketQuas = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "CauHoi_DeThi",
             joinColumns = @JoinColumn(name = "dethi_id"),
             inverseJoinColumns = @JoinColumn(name = "cauhoi_id")

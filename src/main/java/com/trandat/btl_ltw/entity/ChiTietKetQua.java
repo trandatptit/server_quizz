@@ -21,7 +21,7 @@ public class ChiTietKetQua {
     Long cauHoiId;
     String cauTraLoi;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ketqua_id", referencedColumnName = "ketqua_id")
     @JsonBackReference
     KetQua ketQua;

@@ -41,7 +41,7 @@ public class User {
     Set<String> roles;
 
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     Set<KetQua> ketQuas = new HashSet<>();
 
