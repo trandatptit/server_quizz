@@ -6,15 +6,19 @@ server:
 
 spring:
   datasource:
+
+#local
 #    url: "jdbc:mysql://localhost:3309/btl_quizz"
 #    username: root
 #    password: 12345
 
+#Server-Data: aiven
 #    url: "jdbc:mysql://mysql-quizz-dat375801-e1b1.h.aivencloud.com:20319/quiz?ssl=require&user=avnadmin&password=AVNS_ypjswuJQxWZnHvgieRx"
 #    username: avnadmin
 #    password: AVNS_ypjswuJQxWZnHvgieRx
 
 
+#Server-Data: railway
     url: "jdbc:mysql://root:CKOsxKVRpSXrVRWLjeEAJROydwsJZAsi@junction.proxy.rlwy.net:26898/railway"
     username: root
     password: CKOsxKVRpSXrVRWLjeEAJROydwsJZAsi
