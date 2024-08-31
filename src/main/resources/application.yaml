@@ -14,9 +14,10 @@ spring:
 #    username: avnadmin
 #    password: AVNS_ypjswuJQxWZnHvgieRx
 
-    url: "jdbc:mysql://root:UIBcutKYdgLPlSjQPpAFKAWPebelJpFk@junction.proxy.rlwy.net:58077/railway"
+
+    url: "jdbc:mysql://root:CKOsxKVRpSXrVRWLjeEAJROydwsJZAsi@junction.proxy.rlwy.net:26898/railway"
     username: root
-    password: UIBcutKYdgLPlSjQPpAFKAWPebelJpFk
+    password: CKOsxKVRpSXrVRWLjeEAJROydwsJZAsi
 
   jpa:
     hibernate:
