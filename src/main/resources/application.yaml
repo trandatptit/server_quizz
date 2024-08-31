@@ -14,7 +14,7 @@ spring:
 #    username: avnadmin
 #    password: AVNS_ypjswuJQxWZnHvgieRx
 
-    url: "jdbc:mysql://root:WZDVhBpCXItHQkUvFGaVsOglUOmkFlAs@junction.proxy.rlwy.net:34568/railway"
+    url: "jdbc:mysql://root:UIBcutKYdgLPlSjQPpAFKAWPebelJpFk@junction.proxy.rlwy.net:58077/railway"
     username: root
     password: UIBcutKYdgLPlSjQPpAFKAWPebelJpFk
 
